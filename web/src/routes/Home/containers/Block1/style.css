@@ -1,0 +1,5 @@
+.Home-B1 {
+    height: calc(87.5vh - 75px);
+    width: 100%;
+    background-color: var(--color-main);
+}
