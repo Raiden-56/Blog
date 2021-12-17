@@ -1,6 +1,7 @@
 export default interface UserInterface {
     _id: string;
     email: string;
-    avatar: number;
+    roleId: number;
     username: string;
+    postsId: string[];
 }

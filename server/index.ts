@@ -37,7 +37,10 @@ const SessionMiddleware = ExpressSession({
 
 database.Initialise();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://41.97.99.98:3000", "http://localhost:3000"],
+  credentials: true
+}));
 app.use(express.json());
 app.use(SessionMiddleware);
 app.use('/api', router);

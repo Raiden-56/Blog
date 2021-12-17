@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema<UserInterface>({
         type: String,
         required: true
     },
-    role: {
+    roleId: {
         type: Number,
         required: true,
         default: 0,

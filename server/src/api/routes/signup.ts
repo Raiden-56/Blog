@@ -12,7 +12,7 @@ router.post('/', isValidEmail.body, isValidPassword, isValidUsername.body, async
     const username = req.body.username;
 
     const user = await database.User.findOne({ email: email });
-    if (user) res.status(400).json({ error: 'There is Already a user with this email '});
+    if (user) return res.status(400).json({ error: 'There is Already a user with this email '});
 
     const newUser = await database.User.createOne({ email, password, username });
     res.status(200).json(newUser);

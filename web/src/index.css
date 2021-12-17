@@ -5,6 +5,19 @@
   --color-red: 	#EE4B2B;
   /*Other*/
   --modal-index: 99;
+  --banner-height: 300px;
+  --avatar-margin-left: 6.25%;
+  --avatar-width: 128px;
+  --avatar-height: 128px;
+}
+
+.role-admin {
+  color: var(--color-main);
+  opacity: 0.75;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: 0.25rem;
 }
 
 * {

@@ -13,7 +13,7 @@ const NavBar = ({ routes, user } : { routes: RouteInterface[], user: UserInterfa
             <div className='nav-ul'>
                 {routes.map((route, i) => {
                     return (
-                        <Link to={route.url} className={`nav-li ${route.url === location.pathname ? 'nav-li-active' : null}`} key={'nav-li-' + i}>{route.name}</Link>
+                        <Link to={route.url} target={route.target} className={`nav-li ${route.url === location.pathname ? 'nav-li-active' : null}`} key={'nav-li-' + i}>{route.name} <i className={route.icon}/></Link>
                     )
                 })}
                 <LoginState user={user} />

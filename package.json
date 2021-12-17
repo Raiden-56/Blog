@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run start --prefix ./server",
+    "web": "npm start --prefix ./web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raiden-56/Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raiden-56/Blog/issues"
+  },
+  "homepage": "https://github.com/Raiden-56/Blog#readme"
+}

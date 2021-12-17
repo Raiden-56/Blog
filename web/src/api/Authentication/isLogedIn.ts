@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { apiUrl } from '../../utils/constnats';
 
-const Login = async ({ email, password }: { email: string, password: string }) => {
+const Login = async () => {
     const url = apiUrl + '/login'; 
     try {
-        const response = await axios.post(url, {
-            email,
-            password
-        }, { withCredentials: true });
+        const response = await axios.get(url, { withCredentials: true });
         return response;
     } catch (err) {
         return {

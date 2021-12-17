@@ -8,9 +8,9 @@ const Signup = async ({ email, password, username }: { email: string, password: 
             email,
             password,
             username,
-        });
+        }, { withCredentials: true });
         return response;
-    } catch (err) {
+    } catch (err: any) {
         return {
             status: err,
             statusText: '',
