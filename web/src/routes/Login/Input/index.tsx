@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './style.css';
 
-export const Input = ({ type, placeholder, validation } : { type: 'email' | 'password', placeholder: string, validation: (_:string) => boolean }) => {
+export const Input = ({ type, placeholder, validation, onChange } : { type: 'email' | 'password', placeholder: string, validation: (_:string) => boolean, onChange: (_: any) => any }) => {
     
     const [isValid, setValid] = useState<boolean>(true);
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         event.preventDefault()
         setValid(validation(event.target.value));
+        onChange(event.target.value);
     }
 
     return (

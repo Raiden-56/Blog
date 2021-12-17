@@ -49,3 +49,9 @@
 .nav-li:hover {
   opacity: 0.75;
 }
+
+@media (width < 550px) {
+  .nav-ul {
+    display: none;
+  }
+}

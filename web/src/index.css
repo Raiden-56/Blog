@@ -1,6 +1,10 @@
 :root {
+  /*Colors*/
   --color-main: #7B2CBF;
   --color-grey: #303846;
+  --color-red: 	#EE4B2B;
+  /*Other*/
+  --modal-index: 99;
 }
 
 * {

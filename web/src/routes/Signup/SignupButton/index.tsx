@@ -1,9 +1,9 @@
 import './style.css';
 
-const SignupButton = () => {
+const SignupButton = ({ onClick }: { onClick: () => any }) => {
 
     return (
-        <button className="Signup-button">Signup</button>   
+        <button className="Signup-button" onClick={onClick}>Signup</button>   
     )
 }
 

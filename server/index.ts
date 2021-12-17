@@ -1,13 +1,30 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+import * as cors from 'cors'
 import * as express from 'express';
+import * as mongoose from 'mongoose';
+import database from './src/database';
+import { Application } from 'express';
+import { router } from './src/api/routes';
 import MongoStore = require('connect-mongo');
 import * as ExpressSession from 'express-session';
-import { Application, Request, Response } from 'express';
+import { UserInterface } from './src/api/interfaces';
 
 const app: Application = express();
 const port: number = Number(process.env.port) | 3002;
+
+declare module 'express-session' {
+  interface SessionData {
+    userId: mongoose.Types.ObjectId;
+  }
+}
+
+declare module 'express-serve-static-core' {
+  interface Request {
+    user: UserInterface;
+  }
+}
 
 const SessionMiddleware = ExpressSession({
     secret: process.env.secret,
@@ -18,10 +35,12 @@ const SessionMiddleware = ExpressSession({
     }),
 });
 
-app.use(SessionMiddleware);
+database.Initialise();
 
-app.get('/', (req: Request, res: Response) => {
-    console.log('Bite');
-});
+app.use(cors());
+app.use(express.json());
+app.use(SessionMiddleware);
+app.use('/api', router);
+app.use((req: express.Request, res: express.Response) => console.log(req.method, req.url))
 
 app.listen(port, () => console.log("Listening on port:", port));

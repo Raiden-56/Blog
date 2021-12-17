@@ -1,5 +1,7 @@
 import * as mongoose from 'mongoose';
+import { UserConfig } from '../../config';
 import { UserInterface } from '../../api/interfaces';
+import { hashPassword } from '../../api/utils/functions';
 
 const UserSchema = new mongoose.Schema<UserInterface>({
     email: {
@@ -8,16 +10,26 @@ const UserSchema = new mongoose.Schema<UserInterface>({
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        maxlength: UserConfig.usernameMaxLength,
+        minlength: UserConfig.usernmaeMinLength,
     },
     password: {
         type: String,
         required: true
     },
     role: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Number,
         required: true,
-        ref: "Role",
+        default: 0,
+        /*See how to get back the ref*/
+        //ref: "Role",
+        /*
+            0: member
+            1: writer
+            2: moderator
+            3: admin
+        */
     },
     postsId: {
         type: [{
@@ -26,7 +38,15 @@ const UserSchema = new mongoose.Schema<UserInterface>({
         }],
         required: true,
     },
+},
+{
+    timestamps: true
 });
+
+UserSchema.pre('save', async function (next) {
+    this.password = await hashPassword({ password: this.password });
+    next();
+})
 
 const User = mongoose.model('User', UserSchema);
 

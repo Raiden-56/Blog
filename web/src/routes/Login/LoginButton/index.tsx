@@ -1,8 +1,8 @@
 import './style.css';
 
-export const LoginButton = () => {
+export const LoginButton = ({ onClick }: { onClick: () => any }) => {
 
     return (
-        <button className="Login-button">Login</button>   
+        <button className="Login-button" onClick={onClick}>Login</button>   
     )
 }

@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export default interface PostInterface {
+export default interface PostInterface extends mongoose.Document {
     title: string;
     description: string;
     content: string;
