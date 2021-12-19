@@ -1,5 +1,7 @@
 import getOne from './getOne';
 
-export {
+const exported = {
     getOne,
 }
+
+export default exported;

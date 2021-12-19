@@ -1,0 +1,28 @@
+@use "../abstracts" as a;
+
+.main {
+  @include a.flexcenter;
+  height: calc(100vh - 75px);
+  background-color: a.$color-main;
+
+  .container {
+    padding: 3rem 4rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    @include a.flexcenter($direction: column, $gap: 2rem);
+
+    .inputs {
+      width: 100%;
+      @include a.flexcenter($direction: column, $gap: 1rem);
+    }
+
+    .submit {
+      @include a.flexcenter($direction: column, $gap: 0.5rem);
+
+      .text {
+        text-align: center;
+      }
+    }
+  }
+}

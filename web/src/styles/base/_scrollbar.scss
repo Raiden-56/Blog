@@ -1,0 +1,21 @@
+@use "../abstracts" as a;
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Color of the Back*/
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Bar Color */
+::-webkit-scrollbar-thumb {
+  background: a.$color-main;
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.75;
+}

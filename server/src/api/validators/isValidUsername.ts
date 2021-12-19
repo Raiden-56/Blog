@@ -8,7 +8,7 @@ const schema = JOI.object({
         .max(UserConfig.usernameMaxLength)
         .min(UserConfig.usernmaeMinLength)
         .required()
-}).unknown(true);;
+}).unknown(true);
 
 export default {
     body: (req: Request, res: Response, next: NextFunction) => {

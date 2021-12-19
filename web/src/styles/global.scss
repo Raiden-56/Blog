@@ -1,0 +1,34 @@
+@use "./base";
+
+.role-admin {
+  color: var(--color-main);
+  opacity: 0.75;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: 0.25rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.markdown-main {
+  color: var(--color-main);
+}
